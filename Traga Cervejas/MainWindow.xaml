@@ -5,8 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Traga_Cervejas"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Traga Cervejas" Height="600" Width="800" ResizeMode="NoResize">
+
+    <Window.Resources>
+        <local:ViewModel x:Key="vm"></local:ViewModel>
+    </Window.Resources>
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Frame Grid.Row="1" x:Name="frame" NavigationUIVisibility="Visible" Source="View\Page1.xaml"></Frame>
     </Grid>
 </Window>

@@ -12,24 +12,22 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Traga_Cervejas;
 
-namespace Traga_Cervejas
+namespace Traga_Cervejas.View
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Page2.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Page2 : Page
     {
-
+        public MainWindow mainwindowproperty { get; set; }
         public ViewModel vmproperty { get; set; }
-
-
-        public MainWindow()
+        public Page2()
         {
-            
             InitializeComponent();
-            vmproperty = (ViewModel)Resources["vm"];
-            vmproperty.mainwindowproperty = this;
+            mainwindowproperty = (MainWindow)Application.Current.MainWindow;
+            this.DataContext = mainwindowproperty.vmproperty;
         }
     }
 }
