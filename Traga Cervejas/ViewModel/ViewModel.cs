@@ -4,8 +4,8 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Traga_Cervejas.View;
-using Traga_Cervejas;
+//using Traga_Cervejas.View;
+//using Traga_Cervejas;
 
 
 namespace Traga_Cervejas
@@ -14,8 +14,6 @@ namespace Traga_Cervejas
     {
         public MainWindow mainwindowproperty { get; set; }
 
-        
-        
 
         public ViewModel()
         {
@@ -40,7 +38,6 @@ namespace Traga_Cervejas
             {
                 case "start":
                     Page2 p2 = new Page2();
-                   Traga_Cervejas.MainWindow.
                     mainwindowproperty.frame.Navigate(p2);
                     break;
                 //case "Page3":
@@ -57,7 +54,12 @@ namespace Traga_Cervejas
 
         #endregion
 
-        
+
+
+        //Aqui tenho que arrancar o Jogo, onde inicia a classe Jogo(nomejogador)
+        //Considerar 1minuto de jogo e depois executar a saída para a Page3 onde vai buscar os pontos e manda para uma base de Dados nomejogador e pontos.
+
+
 
     } //fim da classe ViewModel
 } // fim do namespace

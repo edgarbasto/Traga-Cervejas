@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Traga_Cervejas.View
+namespace Traga_Cervejas
 {
     /// <summary>
     /// Interaction logic for Page3.xaml

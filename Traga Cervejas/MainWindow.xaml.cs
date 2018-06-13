@@ -30,6 +30,14 @@ namespace Traga_Cervejas
             InitializeComponent();
             vmproperty = (ViewModel)Resources["vm"];
             vmproperty.mainwindowproperty = this;
+            
+
         }
+
+
+        
+
+
+
     }
 }

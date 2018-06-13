@@ -12,10 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Traga_Cervejas;
+//using Traga_Cervejas;
 
 
-namespace Traga_Cervejas.View
+namespace Traga_Cervejas
 {
     /// <summary>
     /// Interaction logic for Page1.xaml
@@ -23,20 +23,29 @@ namespace Traga_Cervejas.View
     public partial class Page1 : Page
     {
 
-        public MainWindow mainwindowproperty { get; set; }
+        //public MainWindow mainwindowproperty { get; set; }
         public ViewModel vmproperty { get; set; }
 
         public Page1()
         {
             InitializeComponent();
-            mainwindowproperty = (MainWindow)Application.Current.MainWindow;
-            this.DataContext = mainwindowproperty.vmproperty;
+            vmproperty = (ViewModel)Resources["testevm"];
+            vmproperty.mainwindowproperty = (MainWindow)Application.Current.MainWindow;
             ligabotoes();
+
+
+
+            //this.DataContext = mainwindowproperty.vmproperty;
+            //mainwindowproperty = (MainWindow)Application.Current.MainWindow;
+            //this.DataContext = main.vmproperty;
+
         }
+
+
 
         public void ligabotoes()
         {
-            vmproperty = new ViewModel();
+            //vmproperty = new ViewModel();
             CommandBindings.Add(new CommandBinding(
                 Comandos.start,
                 (sender, e) => vmproperty.navega("start"),
@@ -57,9 +66,6 @@ namespace Traga_Cervejas.View
 
 
         }
-
-
-
 
 
 

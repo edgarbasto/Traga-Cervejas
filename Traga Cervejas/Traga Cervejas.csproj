@@ -54,6 +54,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\Jogo.cs" />
     <Compile Include="ViewModel\Comandos.cs" />
     <Compile Include="ViewModel\ViewModel.cs" />
     <Compile Include="View\Page1.xaml.cs">
@@ -116,8 +117,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Model\" />
+    <Resource Include="images\base.png" />
+    <Resource Include="images\beer1.png" />
+    <Resource Include="images\charge.png" />
+    <Resource Include="images\sagres.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
