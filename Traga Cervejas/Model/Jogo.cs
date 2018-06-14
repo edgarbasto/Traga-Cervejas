@@ -41,7 +41,12 @@ namespace Traga_Cervejas
         {
             _jogador = nomejogador;
 
-            vmproperty.mainwindowproperty = this;
+           
+            //binding das properties
+            vmproperty.mainwindowproperty = (MainWindow)Application.Current.MainWindow;
+            //this.DataContext = mainwindowproperty.vmproperty;
+            //mainwindowproperty = (MainWindow)Application.Current.MainWindow;
+            //this.DataContext = main.vmproperty;
 
 
             //ticker da animação das cervejas (6s)
