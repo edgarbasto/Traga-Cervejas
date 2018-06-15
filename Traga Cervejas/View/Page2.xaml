@@ -8,7 +8,8 @@
       d:DesignHeight="600" d:DesignWidth="800"
       Title="Page2">
     <Page.Resources>
-        <local:ViewModel x:Key="testevm"></local:ViewModel>
+        <!--<local:ViewModel x:Key="testevm"></local:ViewModel>-->
+        
 
     </Page.Resources>
 
@@ -22,7 +23,7 @@
             </LinearGradientBrush>
         </Grid.Background>
 
-
+        <!--<Frame Width="800" Height="600" Content="{Binding Jogo}"></Frame>-->
         <Image x:Name="rino" HorizontalAlignment="Left" Margin="326,421,0,0" Width="150" Height="150" Source="../images/base.png" />
         <Image x:Name="sagres0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="100" Width="100" Source="../images/sagres.png" Margin="818,321,-124,0" RenderTransformOrigin="0.5,0.5"></Image>
         <Image x:Name="sagres1" HorizontalAlignment="Left" VerticalAlignment="Top" Height="100" Width="100" Source="../images/sagres.png" Margin="818,321,-124,0" RenderTransformOrigin="0.5,0.5"></Image>

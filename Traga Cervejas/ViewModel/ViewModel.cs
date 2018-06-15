@@ -14,6 +14,8 @@ namespace Traga_Cervejas
     {
         public MainWindow mainwindowproperty { get; set; }
 
+        public Jogo jogoproperty { get; set; }
+        public Page2 pag2property { get; set; }
 
         public ViewModel()
         {

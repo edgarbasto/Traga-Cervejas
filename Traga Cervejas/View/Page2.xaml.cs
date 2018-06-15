@@ -28,7 +28,10 @@ namespace Traga_Cervejas
             InitializeComponent();
             vmproperty = (ViewModel)Resources["testevm"];
             vmproperty.mainwindowproperty = (MainWindow)Application.Current.MainWindow;
+            vmproperty.jogoproperty = new Jogo("edgar");
+            //DataContext = new Jogo("edgar");
 
+            
 
             //mainwindowproperty = (MainWindow)Application.Current.MainWindow;
             //this.DataContext = mainwindowproperty.vmproperty;
@@ -42,7 +45,14 @@ namespace Traga_Cervejas
 
         } //focus Grid - ficar no page2.cs ??
 
+        private void image_KeyDown(object sender, KeyEventArgs e)
+        {
+            vmproperty.jogoproperty.image_KeyDown(sender, e);
+        }
 
-
+        private void image_KeyUp(object sender, KeyEventArgs e)
+        {
+            vmproperty.jogoproperty.image_KeyUp(sender, e);
+        }
     }
 }
