@@ -95,8 +95,7 @@ namespace Traga_Cervejas
         //public void criaImagens()
         //{
 
-
-
+            
         //    //CERVEJA
 
         //    Image sagres0 = new Image(); 
