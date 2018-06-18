@@ -33,7 +33,7 @@ namespace Traga_Cervejas
         #region Binding
 
         public ViewModel vmproperty { get; set; }
-        //public Page2 pag2property { get; set; }
+        public Page2 pag2property { get; set; }
 
         #endregion
 
@@ -51,9 +51,10 @@ namespace Traga_Cervejas
 
         #region Construtor
 
-        public Jogo(string nomejogador)
+        public Jogo(string nomejogador, Page2 p2)
         {
             _jogador = nomejogador;
+            pag2property = p2;
 
             //vmproperty.pag2property = new Page2();
             
@@ -78,9 +79,15 @@ namespace Traga_Cervejas
             gameTimer.Interval = new TimeSpan(0, 0, 0, 0, 10);
             gameTimer.Start();
 
-            
+            //pag2property.rino.Focus();
+            pag2property.theGrid.Focus();
+            //pag2property.theGrid.KeyDown += image_KeyDown; 
+               
+            //pag2property.theGrid.KeyUp += image_KeyDown;
 
         }
+
+        
 
         #endregion
 
@@ -88,14 +95,14 @@ namespace Traga_Cervejas
         #region Jogo
 
 
-        
+
 
 
 
         //public void criaImagens()
         //{
 
-            
+
         //    //CERVEJA
 
         //    Image sagres0 = new Image(); 
@@ -135,21 +142,22 @@ namespace Traga_Cervejas
             int[] leftFinish = new int[5];
             int[] topFinish = new int[5];
 
-            Image[] cervejas = new Image[5] { vmproperty.pag2property.sagres0, vmproperty.pag2property.sagres1, vmproperty.pag2property.sagres2, vmproperty.pag2property.sagres3, vmproperty.pag2property.sagres4 };
+            Image[] cervejas = new Image[5] { pag2property.sagres0, pag2property.sagres1, pag2property.sagres2, pag2property.sagres3, pag2property.sagres4 };
+            //Image[] cervejas = new Image[5] { vmproperty.pag2property.sagres0, vmproperty.pag2property.sagres1, vmproperty.pag2property.sagres2, vmproperty.pag2property.sagres3, vmproperty.pag2property.sagres4 };
 
-
+            
 
             for (int i = 0; i < 5; i++)
             {
+                
+                
+                pag2property.theGrid.Children.Remove(cervejas[i]);
 
+                pag2property.theGrid.Children.Add(cervejas[i]);
 
-                vmproperty.pag2property.theGrid.Children.Remove(cervejas[i]);
-
-                vmproperty.pag2property.theGrid.Children.Add(cervejas[i]);
-
-                leftStart[i] = _t.Next(10, (int)vmproperty.pag2property.theGrid.ActualWidth - 50);
+                leftStart[i] = _t.Next(10, 550);
                 topStart[i] = _t.Next(10, 70);
-                leftFinish[i] = _t.Next(10, (int)vmproperty.pag2property.theGrid.ActualWidth - 50);
+                leftFinish[i] = _t.Next(10, 550);
                 topFinish[i] = _t.Next(680, 700);
 
                 int tempoAnim = _t.Next(2, 6);
@@ -161,34 +169,35 @@ namespace Traga_Cervejas
                 thicknessanimation.Duration = TimeSpan.FromSeconds(tempoAnim);
 
 
-                cervejas[i].BeginAnimation(MarginProperty, thicknessanimation);
+                cervejas[i].BeginAnimation(Canvas.MarginProperty, thicknessanimation);
                 
 
             }
 
 
-            
+
         } //metodo animação cervejas
 
-        public DependencyProperty MarginProperty { get; private set; }
-
+        
         //metodo deteção colisão
         public void gameTimer_Tick(object sender, EventArgs e)
         {
 
-
-            Image[] cervejas = new Image[5] { vmproperty.pag2property.sagres0, vmproperty.pag2property.sagres1, vmproperty.pag2property.sagres2, vmproperty.pag2property.sagres3, vmproperty.pag2property.sagres4 };
+            Image[] cervejas = new Image[5] { pag2property.sagres0, pag2property.sagres1, pag2property.sagres2, pag2property.sagres3, pag2property.sagres4 };
+            //Image[] cervejas = new Image[5] { vmproperty.pag2property.sagres0, vmproperty.pag2property.sagres1, vmproperty.pag2property.sagres2, vmproperty.pag2property.sagres3, vmproperty.pag2property.sagres4 };
 
             for (int i = 0; i < 5; i++)
             {
+                
 
-
-                if (vmproperty.pag2property.rino.Margin.Top > cervejas[i].Margin.Top - 50 && vmproperty.pag2property.rino.Margin.Top < cervejas[i].Margin.Top + 50)
+                if (pag2property.rino.Margin.Top > cervejas[i].Margin.Top - 50 && pag2property.rino.Margin.Top < cervejas[i].Margin.Top + 50)
                 {
-                    if (vmproperty.pag2property.rino.Margin.Left > cervejas[i].Margin.Left - 50 && vmproperty.pag2property.rino.Margin.Left < cervejas[i].Margin.Left + 50)
+                    if (pag2property.rino.Margin.Left > cervejas[i].Margin.Left - 50 && pag2property.rino.Margin.Left < cervejas[i].Margin.Left + 50)
                     {
-                        vmproperty.pag2property.theGrid.Children.Remove(cervejas[i]);
+                        //falta incluir controlo de 1 ponto por ceveja, devido aos 10ms de verificação da colisão
+                        pag2property.theGrid.Children.Remove(cervejas[i]);
                         Pontos += 1;
+                        pag2property.txtpontos.Text = Pontos.ToString();
 
                        
                     }
@@ -198,90 +207,6 @@ namespace Traga_Cervejas
 
 
         } //metodo deteção colisão
-
-
-        //movimento rino
-        //bool isLeftPressed, isRightPressed;
-
-        public void image_KeyDown(object sender, KeyEventArgs e)
-        {
-            int moveSpeed = 15;
-
-            if (e.Key == Key.Left)
-            {
-
-                //isLeftPressed = true;
-
-
-                if (vmproperty.pag2property.rino.Margin.Left > 1)
-                {
-                    vmproperty.pag2property.rino.Margin = new Thickness(vmproperty.pag2property.rino.Margin.Left - moveSpeed, vmproperty.pag2property.rino.Margin.Top, vmproperty.pag2property.rino.Margin.Right + moveSpeed, vmproperty.pag2property.rino.Margin.Bottom);
-                }
-
-
-
-            }
-
-            if (e.Key == Key.Right)
-            {
-                //isRightPressed = true;
-               
-                if (vmproperty.pag2property.rino.Margin.Right > -325)
-                {
-                    vmproperty.pag2property.rino.Margin = new Thickness(vmproperty.pag2property.rino.Margin.Left + moveSpeed, vmproperty.pag2property.rino.Margin.Top, vmproperty.pag2property.rino.Margin.Right - moveSpeed, vmproperty.pag2property.rino.Margin.Bottom);
-                }
-
-            }
-
-            if (e.Key == Key.Space)
-            {
-                //421 to top
-                while (vmproperty.pag2property.rino.Margin.Top > vmproperty.pag2property.theGrid.ActualHeight - 450)
-                {
-                    vmproperty.pag2property.rino.Margin = new Thickness(vmproperty.pag2property.rino.Margin.Left, vmproperty.pag2property.rino.Margin.Top - 2, vmproperty.pag2property.rino.Margin.Right, vmproperty.pag2property.rino.Margin.Bottom);
-                }
-
-            }
-
-
-        }
-
-
-        public void image_KeyUp(object sender, KeyEventArgs e)
-        {
-            //if (e.Key == Key.Left)
-            //{
-            //    isLeftPressed = false;
-                
-            //}
-
-            //if (e.Key == Key.Right)
-            //{
-            //    isRightPressed = false;
-                
-            //}
-
-            if (e.Key == Key.Space)
-            {
-                //421 to top
-                while (vmproperty.pag2property.rino.Margin.Top < 421)
-                {
-                    vmproperty.pag2property.rino.Margin = new Thickness(vmproperty.pag2property.rino.Margin.Left, vmproperty.pag2property.rino.Margin.Top + 2, vmproperty.pag2property.rino.Margin.Right, vmproperty.pag2property.rino.Margin.Bottom);
-                }
-
-            }
-
-
-        } //movimento Rino
-
-
-        ////Resolução do FOCUS na GRID.
-        //private void theGrid_Loaded(object sender, RoutedEventArgs e)
-        //{
-        //    theGrid.Focus();
-
-        //} //focus Grid - ficar no page2.cs ??
-
 
 
 
@@ -317,7 +242,9 @@ namespace Traga_Cervejas
             }
         }
 
-        
+       
+
+
 
         #endregion
 

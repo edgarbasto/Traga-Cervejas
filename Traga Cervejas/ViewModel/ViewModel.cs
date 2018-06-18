@@ -39,8 +39,9 @@ namespace Traga_Cervejas
             switch (pag)
             {
                 case "start":
-                    Page2 p2 = new Page2();
+                    Page2 p2 = new Page2(/*jogoproperty*/);
                     mainwindowproperty.frame.Navigate(p2);
+                    jogoproperty = new Jogo("edgar", p2);
                     break;
                 //case "Page3":
                 //    Page3 p3 = new Page3();
