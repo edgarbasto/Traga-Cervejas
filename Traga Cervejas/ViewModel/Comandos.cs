@@ -11,7 +11,7 @@ namespace Traga_Cervejas
     {
 
         public static RoutedUICommand start = new RoutedUICommand("start", "start", typeof(Comandos));
-        //public static RoutedUICommand finish = new RoutedUICommand("Finish", "Finish", typeof(Comandos));
+        public static RoutedUICommand finish = new RoutedUICommand("Finish", "Finish", typeof(Comandos));
         public static RoutedUICommand sair = new RoutedUICommand("Sair", "Sair", typeof(Comandos));
 
         

@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.ComponentModel;
+using System.Windows.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,10 +18,19 @@ namespace Traga_Cervejas
         public MainWindow mainwindowproperty { get; set; }
 
         public Jogo jogoproperty { get; set; }
-        public Page2 pag2property { get; set; }
 
+
+        public Page1 pag1property { get; set; }
+        public Page2 pag2property { get; set; }
+        public Page3 pag3property { get; set; }
+   
         public ViewModel()
         {
+
+
+            
+
+
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -29,6 +41,74 @@ namespace Traga_Cervejas
 
         }
 
+
+        #region database
+
+        public void reset()
+        {
+            using (tragacervejasdbEntities bd = new tragacervejasdbEntities())
+            {
+                ListaJogos = new ObservableCollection<jogo>(bd.jogos);
+                JogosView = CollectionViewSource.GetDefaultView(ListaJogos);
+                JogoCorrente = (jogo)JogosView.CurrentItem;
+
+
+            }
+
+
+        }
+
+
+        public void addScore(jogo j)
+        {
+            using (tragacervejasdbEntities bd = new tragacervejasdbEntities())
+            {
+                //var este = bd.jogos.Where(x => x.);
+
+                //var insere = bd.Set<jogo>;
+
+                //bd.jogos.AddObject();
+
+
+            }
+
+            reset();
+        }
+
+
+
+        ObservableCollection<jogo> _listajogos;
+        public ObservableCollection<jogo> ListaJogos
+        {
+            get { return _listajogos; }
+            set { _listajogos = value;
+                OnPropertyChanged("ListaJogos");
+            }
+        }
+
+        ICollectionView _jogosview;
+        public ICollectionView JogosView
+        {
+            get { return _jogosview; }
+            set { _jogosview = value;
+                OnPropertyChanged("JogosView");
+            }
+        }
+
+        jogo _jogocorrente;
+
+        public jogo JogoCorrente
+        {
+            get { return _jogocorrente; }
+            set { _jogocorrente = value;
+                OnPropertyChanged("JogoCorrente");
+            }
+        }
+
+
+
+
+        #endregion
 
 
         #region navpaginas
@@ -43,10 +123,10 @@ namespace Traga_Cervejas
                     mainwindowproperty.frame.Navigate(p2);
                     jogoproperty = new Jogo("edgar", p2);
                     break;
-                //case "Page3":
-                //    Page3 p3 = new Page3();
-                //    mainwindowproperty.frame.Navigate(p3);
-                //    break;
+                case "fim":
+                    Page3 p3 = new Page3();
+                    mainwindowproperty.frame.Navigate(p3);
+                    break;
             }
         }
 

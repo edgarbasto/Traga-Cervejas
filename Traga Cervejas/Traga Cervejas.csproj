@@ -34,8 +34,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -54,6 +63,24 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="bdpontos.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>bdpontos.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="bdpontos.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>bdpontos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="bdpontos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>bdpontos.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="jogo.cs">
+      <DependentUpon>bdpontos.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\Jogo.cs" />
     <Compile Include="ViewModel\Comandos.cs" />
     <Compile Include="ViewModel\ViewModel.cs" />
@@ -109,6 +136,14 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EntityDeploy Include="bdpontos.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>bdpontos.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="bdpontos.edmx.diagram">
+      <DependentUpon>bdpontos.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -117,12 +152,32 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="TextFile1.txt" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="images\base.png" />
     <Resource Include="images\beer1.png" />
     <Resource Include="images\charge.png" />
     <Resource Include="images\sagres.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="tablesfordatabase.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bdpontos.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>bdpontos.Context.cs</LastGenOutput>
+      <DependentUpon>bdpontos.edmx</DependentUpon>
+    </Content>
+    <Content Include="bdpontos.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>bdpontos.edmx</DependentUpon>
+      <LastGenOutput>bdpontos.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

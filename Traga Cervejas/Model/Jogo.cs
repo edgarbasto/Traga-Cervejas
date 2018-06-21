@@ -35,6 +35,8 @@ namespace Traga_Cervejas
         public ViewModel vmproperty { get; set; }
         public Page2 pag2property { get; set; }
 
+        //public MainWindow mainwindowproperty { get; set; }
+
         #endregion
 
 
@@ -67,17 +69,25 @@ namespace Traga_Cervejas
 
 
             //ticker da animação das cervejas (6s)
-            DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
+            //DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
             dispatcherTimer.Tick += DispatcherTimer_Tick;
             dispatcherTimer.Interval = new TimeSpan(0, 0, 6);
             dispatcherTimer.Start();
 
 
             //ticker para deteção da colisão (10ms)
-            DispatcherTimer gameTimer = new System.Windows.Threading.DispatcherTimer();
+            //DispatcherTimer gameTimer = new System.Windows.Threading.DispatcherTimer();
             gameTimer.Tick += gameTimer_Tick;
             gameTimer.Interval = new TimeSpan(0, 0, 0, 0, 10);
             gameTimer.Start();
+            
+            
+            
+            //tempo de Jogo
+            //DispatcherTimer tempodeJogo = new System.Windows.Threading.DispatcherTimer();
+            tempodeJogo.Tick += TempodeJogo_Tick;
+            tempodeJogo.Interval = new TimeSpan(0, 0, 0, 10);
+            tempodeJogo.Start();
 
             //pag2property.rino.Focus();
             pag2property.theGrid.Focus();
@@ -87,14 +97,18 @@ namespace Traga_Cervejas
 
         }
 
-        
+
+
+
 
         #endregion
 
 
         #region Jogo
 
-
+        DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
+        DispatcherTimer gameTimer = new System.Windows.Threading.DispatcherTimer();
+        DispatcherTimer tempodeJogo = new System.Windows.Threading.DispatcherTimer();
 
 
 
@@ -209,6 +223,17 @@ namespace Traga_Cervejas
         } //metodo deteção colisão
 
 
+        //tempo de jogo
+        private void TempodeJogo_Tick(object sender, EventArgs e)
+        {
+            dispatcherTimer.Stop();
+            gameTimer.Start();
+            tempodeJogo.Stop();
+
+            pag2property.vmproperty.navega("fim");
+           
+
+        }
 
 
         #endregion

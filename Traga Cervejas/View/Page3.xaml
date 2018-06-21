@@ -8,6 +8,12 @@
       d:DesignHeight="600" d:DesignWidth="800"
       Title="Page3">
 
+    <Page.Resources>
+        <local:ViewModel x:Key="testevm"></local:ViewModel>
+
+
+    </Page.Resources>
+
     <Grid>
         
     </Grid>

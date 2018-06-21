@@ -1,0 +1,13 @@
+﻿CREATE TABLE jogos(
+	id INT NOT NULL IDENTITY PRIMARY KEY,
+	jogador VARCHAR(50) NOT NULL,
+	pontos INT NOT NULL,
+	dia DATETIME DEFAULT(getdate())
+	);
+
+
+
+INSERT INTO jogos(jogador, pontos, dia) VALUES('tone das torres', 134, DEFAULT);
+
+SELECT * FROM jogos;
+

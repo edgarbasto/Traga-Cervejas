@@ -24,17 +24,24 @@ namespace Traga_Cervejas
     {
         public MainWindow mainwindowproperty { get; set; }
         public Jogo jogoproperty { get; set; }
-        //public ViewModel vmproperty { get; set; }
+        public ViewModel vmproperty { get; set; }
+
         public Page2(/*Jogo j1*/)
         {
             InitializeComponent();
 
-            mainwindowproperty = (MainWindow)Application.Current.MainWindow;
-            this.DataContext = mainwindowproperty.vmproperty;
+            //mainwindowproperty = (MainWindow)Application.Current.MainWindow;
+            //this.DataContext = mainwindowproperty.vmproperty;
+
+
+            vmproperty = (ViewModel)Resources["testevm"];
+            vmproperty.mainwindowproperty = (MainWindow)Application.Current.MainWindow;
+            
+
 
             //jogoproperty = j1;
 
-            //vmproperty = (ViewModel)Resources["testevm"];
+            //
             //vmproperty.mainwindowproperty = (MainWindow)Application.Current.MainWindow;
             //vmproperty.jogoproperty = new Jogo("edgar");
             //DataContext = new Jogo("edgar");

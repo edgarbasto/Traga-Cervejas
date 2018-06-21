@@ -20,9 +20,15 @@ namespace Traga_Cervejas
     /// </summary>
     public partial class Page3 : Page
     {
+
+        public ViewModel vmproperty { get; set; }
+
         public Page3()
         {
             InitializeComponent();
+            vmproperty = (ViewModel)Resources["testevm"];
+            vmproperty.mainwindowproperty = (MainWindow)Application.Current.MainWindow;
+
         }
     }
 }
