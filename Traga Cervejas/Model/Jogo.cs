@@ -229,8 +229,10 @@ namespace Traga_Cervejas
             dispatcherTimer.Stop();
             gameTimer.Start();
             tempodeJogo.Stop();
+            vmproperty.addScore(Jogador, Pontos);
 
-            pag2property.vmproperty.navega("fim");
+            //pag2property.vmproperty.navega("fim");
+            
            
 
         }

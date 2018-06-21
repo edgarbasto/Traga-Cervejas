@@ -59,15 +59,30 @@ namespace Traga_Cervejas
         }
 
 
-        public void addScore(jogo j)
+        public void addScore(string _jogador, int _pontos )
         {
             using (tragacervejasdbEntities bd = new tragacervejasdbEntities())
             {
-                //var este = bd.jogos.Where(x => x.);
+                
+                if (_jogador != null && _pontos != null)
+                {
+                    
+                    jogo j = new jogo();
 
-                //var insere = bd.Set<jogo>;
+                    j.jogador = _jogador;
+                    j.pontos = _pontos;
 
-                //bd.jogos.AddObject();
+                    bd.Entry(j).State = j.id == 0 ? System.Data.Entity.EntityState.Added : System.Data.Entity.EntityState.Modified;
+                    //var teste = bd.Set<jogo>
+                    //bd.jogos.At
+                    //bd.jogos.Attach(j);
+                    bd.SaveChanges();
+
+
+                }
+
+                reset();
+                System.Windows.MessageBox.Show("Pontos: {0}", _pontos.ToString());
 
 
             }

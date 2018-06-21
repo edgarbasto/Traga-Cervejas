@@ -15,6 +15,8 @@
     </Page.Resources>
 
     <Grid>
-        
+        <DataGrid HorizontalAlignment="Left" Height="351" Margin="153,142,0,0" VerticalAlignment="Top" Width="526"/>
+        <TextBlock HorizontalAlignment="Left" Height="56" Margin="268,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="290" Text="TOP 10 High Scores" FontSize="33"/>
+
     </Grid>
 </Page>
