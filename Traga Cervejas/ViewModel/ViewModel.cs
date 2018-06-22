@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.ComponentModel;
+//using System.ComponentModel;
 using System.Windows.Data;
 using System.Linq;
 using System.Text;
@@ -71,23 +71,28 @@ namespace Traga_Cervejas
 
                     j.jogador = _jogador;
                     j.pontos = _pontos;
+                    j.dia = DateTime.Now;
 
-                    bd.Entry(j).State = j.id == 0 ? System.Data.Entity.EntityState.Added : System.Data.Entity.EntityState.Modified;
+                    bd.jogos.Add(j);
+                    
+
+                    //bd.Entry(j).State = j.id == 0 ? System.Data.Entity.EntityState.Added : System.Data.Entity.EntityState.Modified;
                     //var teste = bd.Set<jogo>
                     //bd.jogos.At
                     //bd.jogos.Attach(j);
                     bd.SaveChanges();
+                    reset();
 
 
                 }
 
-                reset();
+                
                 System.Windows.MessageBox.Show("Pontos: {0}", _pontos.ToString());
 
 
             }
 
-            reset();
+            //reset();
         }
 
 
