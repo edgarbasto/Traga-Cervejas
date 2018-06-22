@@ -9,13 +9,30 @@
       Title="Page3">
 
     <Page.Resources>
-        <local:ViewModel x:Key="testevm"></local:ViewModel>
+        <!--<local:ViewModel x:Key="testevm"></local:ViewModel>-->
 
 
     </Page.Resources>
 
     <Grid>
-        <DataGrid HorizontalAlignment="Left" Height="351" Margin="153,142,0,0" VerticalAlignment="Top" Width="526"/>
+        <DataGrid x:Name="dgrid" HorizontalAlignment="Left" IsReadOnly="True" Height="198" Margin="153,142,0,0" VerticalAlignment="Top" Width="371" ItemsSource="{Binding ListaJogos}" CanUserAddRows="False" CanUserReorderColumns="False" CanUserResizeRows="False" CanUserResizeColumns="False" Loaded="dgrid_Loaded" />
+        
+        
+        <!--<DataGrid x:Name="datagrid" AutoGenerateColumns="False" HorizontalAlignment="Left" IsReadOnly="True" Height="198" Margin="355,359,0,0" VerticalAlignment="Top" Width="371" ItemsSource="{Binding ListaJogos}" CanUserAddRows="False" CanUserReorderColumns="False" CanUserResizeRows="False" CanUserResizeColumns="False" CanUserSortColumns="False" >
+            <DataGrid.Columns>
+
+                <DataGridTextColumn Header="Pontos" Binding="{Binding JogosView.pontos}" IsReadOnly="True" SortDirection="Descending"></DataGridTextColumn>
+                <DataGridTextColumn Header="Nome" Binding="{Binding Path=JogosView[jogador].Value}" IsReadOnly="True"></DataGridTextColumn>
+                <DataGridTextColumn Header="Dia do Jogo" Binding="{Binding JogoCorrente.dia}" IsReadOnly="True"></DataGridTextColumn>
+                
+            </DataGrid.Columns>
+            
+        </DataGrid>-->
+        
+        
+        
+
+
         <TextBlock HorizontalAlignment="Left" Height="56" Margin="268,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="290" Text="TOP 10 High Scores" FontSize="33"/>
 
     </Grid>

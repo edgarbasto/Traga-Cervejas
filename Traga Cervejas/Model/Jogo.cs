@@ -232,7 +232,7 @@ namespace Traga_Cervejas
             pag2property.vmproperty.addScore(Jogador, Pontos);
             
 
-            //pag2property.vmproperty.navega("fim");
+            pag2property.vmproperty.navega("fim");
             
            
 

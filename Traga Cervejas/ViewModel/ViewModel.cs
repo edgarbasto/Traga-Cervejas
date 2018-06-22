@@ -26,7 +26,7 @@ namespace Traga_Cervejas
    
         public ViewModel()
         {
-
+            reset();
 
             
 
@@ -87,7 +87,7 @@ namespace Traga_Cervejas
                 }
 
                 
-                System.Windows.MessageBox.Show("Pontos: {0}", _pontos.ToString());
+                System.Windows.MessageBox.Show(String.Format("Pontos: {0}", _pontos.ToString()));
 
 
             }
@@ -159,8 +159,7 @@ namespace Traga_Cervejas
 
 
 
-        //Aqui tenho que arrancar o Jogo, onde inicia a classe Jogo(nomejogador)
-        //Considerar 1minuto de jogo e depois executar a saída para a Page3 onde vai buscar os pontos e manda para uma base de Dados nomejogador e pontos.
+        
 
 
 
