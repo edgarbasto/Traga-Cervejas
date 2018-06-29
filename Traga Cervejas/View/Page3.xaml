@@ -15,7 +15,7 @@
     </Page.Resources>
 
     <Grid>
-        <DataGrid x:Name="dgrid" HorizontalAlignment="Left" IsReadOnly="True" Height="198" Margin="153,142,0,0" VerticalAlignment="Top" Width="371" ItemsSource="{Binding ListaJogos}" CanUserAddRows="False" CanUserReorderColumns="False" CanUserResizeRows="False" CanUserResizeColumns="False" Loaded="dgrid_Loaded" />
+        <DataGrid x:Name="dgrid" HorizontalAlignment="Left" IsReadOnly="True" Height="328" Margin="208,125,0,0" VerticalAlignment="Top" Width="371" ItemsSource="{Binding ListaJogos}" CanUserAddRows="False" CanUserReorderColumns="False" CanUserResizeRows="False" CanUserResizeColumns="False" Loaded="dgrid_Loaded" />
         
         
         <!--<DataGrid x:Name="datagrid" AutoGenerateColumns="False" HorizontalAlignment="Left" IsReadOnly="True" Height="198" Margin="355,359,0,0" VerticalAlignment="Top" Width="371" ItemsSource="{Binding ListaJogos}" CanUserAddRows="False" CanUserReorderColumns="False" CanUserResizeRows="False" CanUserResizeColumns="False" CanUserSortColumns="False" >
@@ -33,7 +33,7 @@
         
 
 
-        <TextBlock HorizontalAlignment="Left" Height="56" Margin="268,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="290" Text="TOP 10 High Scores" FontSize="33"/>
+        <TextBlock HorizontalAlignment="Left" Height="56" Margin="269,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="290" Text="Pontuação Geral" FontSize="33"/>
 
     </Grid>
 </Page>

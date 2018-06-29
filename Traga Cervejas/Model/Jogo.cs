@@ -53,10 +53,11 @@ namespace Traga_Cervejas
 
         #region Construtor
 
-        public Jogo(string nomejogador, Page2 p2)
+        public Jogo(string nomejogador, Page2 p2, ViewModel vm)
         {
             _jogador = nomejogador;
             pag2property = p2;
+            vmproperty = vm;
 
             //vmproperty.pag2property = new Page2();
             
@@ -229,10 +230,12 @@ namespace Traga_Cervejas
             dispatcherTimer.Stop();
             gameTimer.Start();
             tempodeJogo.Stop();
-            pag2property.vmproperty.addScore(Jogador, Pontos);
-            
+            vmproperty.addScore(Jogador, Pontos);
+            vmproperty.navega("fim");
 
-            pag2property.vmproperty.navega("fim");
+
+            //pag2property.vmproperty.addScore(Jogador, Pontos);
+            //pag2property.vmproperty.navega("fim");
             
            
 

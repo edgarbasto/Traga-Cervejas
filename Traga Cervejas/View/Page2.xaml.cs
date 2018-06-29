@@ -30,14 +30,19 @@ namespace Traga_Cervejas
         {
             InitializeComponent();
 
-            //mainwindowproperty = (MainWindow)Application.Current.MainWindow;
-            //this.DataContext = mainwindowproperty.vmproperty;
-
-
-            vmproperty = (ViewModel)Resources["testevm"];
-            vmproperty.mainwindowproperty = (MainWindow)Application.Current.MainWindow;
             
 
+            //o que estava a funcionar
+            //vmproperty = (ViewModel)Resources["testevm"];
+            //vmproperty.mainwindowproperty = (MainWindow)Application.Current.MainWindow;
+
+            mainwindowproperty = (MainWindow)Application.Current.MainWindow;
+            //this.DataContext = mainwindowproperty.vmproperty;
+            DataContext = this;
+
+
+            //mainwindowproperty = (MainWindow)Application.Current.MainWindow;
+            //this.DataContext = mainwindowproperty.vmproperty;
 
             //jogoproperty = j1;
 
@@ -58,7 +63,7 @@ namespace Traga_Cervejas
         {
             theGrid.Focus();
 
-        } //focus Grid - ficar no page2.cs ??
+        } //focus Grid 
 
         #region movimento RINO
 

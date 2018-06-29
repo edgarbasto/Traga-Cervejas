@@ -129,7 +129,7 @@ namespace Traga_Cervejas
 
 
         #endregion
-
+        
 
         #region navpaginas
 
@@ -140,8 +140,8 @@ namespace Traga_Cervejas
             {
                 case "start":
                     Page2 p2 = new Page2(/*jogoproperty*/);
-                    mainwindowproperty.frame.Navigate(p2);
-                    jogoproperty = new Jogo("edgar", p2);
+                    mainwindowproperty.frame.Navigate(p2);                   
+                    jogoproperty = new Jogo("teste", p2, this);
                     break;
                 case "fim":
                     Page3 p3 = new Page3();
@@ -149,6 +149,21 @@ namespace Traga_Cervejas
                     break;
             }
         }
+
+        public void navega(String pag, String player)
+        {
+
+            switch (pag)
+            {
+                case "start":
+                    Page2 p2 = new Page2(/*jogoproperty*/);
+                    mainwindowproperty.frame.Navigate(p2);
+                    jogoproperty = new Jogo(player, p2, this);
+                    break;
+               
+            }
+        }
+
 
         public void sair()
         {
